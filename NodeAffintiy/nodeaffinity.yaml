@@ -1,0 +1,19 @@
+# This Pod configuration specifies node affinity rules for scheduling. It prefers nodes with the label 'disktype=ssd' during scheduling, giving them a weight of 1. If no suitable nodes are available, the Pod can still be scheduled elsewhere.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                  - ssd
+  containers:
+    - name: nginx
+      image: nginx
