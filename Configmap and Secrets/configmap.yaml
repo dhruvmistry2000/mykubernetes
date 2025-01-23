@@ -1,7 +1,0 @@
-# ConfigMap for MongoDB configuration, specifying the database host.
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mongodb-configmap
-data:
-  db_host: mongodb-service  # Hostname for MongoDB
