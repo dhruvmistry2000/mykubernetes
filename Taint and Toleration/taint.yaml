@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: my-app
+    type: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: "app"
+    operator: "Equal"
+    value: "blue"
+    effect: "NoSchedule"  # This toleration allows the pod to be scheduled on nodes with the "app=blue" taint, even if the taint prevents other pods from being scheduled there.
