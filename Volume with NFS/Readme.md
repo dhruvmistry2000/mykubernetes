@@ -7,10 +7,10 @@ Create an instance for an external volume to save the files of worker nodes. Ins
 To Create mount point run ;
 
 ```bash
-  yum install nfs-utils -y
+yum install nfs-utils -y
 ```
 ```bash
-  vi /etc/exports
+vi /etc/exports
 ```
  put entry in the exports file and run next cmd.
  ```bash
@@ -18,30 +18,30 @@ To Create mount point run ;
 insecure)
 ```
 ```bash
-  systemctl enable nfs-server --now
+systemctl enable nfs-server --now
 ```
 ```bash
-   exportfs -rav
+exportfs -rav
 ```
 ```bash
-  showmount -e localhost
+showmount -e localhost
 ```
 
 ## Configure a mount point on work-node machines 
 
 
 ```bash
-  yum install nfs-utils -y
+yum install nfs-utils -y
 ```
 ```bash
-    systemctl enable nfs-server --now
+systemctl enable nfs-server --now
 ```
 ```bash
-   mount -t nfs <nfs-machine ip-addr/hostname>:<path to nfs dir in nfs server> /mnt
+mount -t nfs <nfs-machine ip-addr/hostname>:<path to nfs dir in nfs server> /mnt
 ```
 Before run mount -t nfs command allow nfs port in both worker-node machines and nfs-volume machine and allow icmp-ipv4 in all machines for ping.
 ```bash
-  vi /etc/fstab
+vi /etc/fstab
 ```
 entry in /etc/fstab
 ```bash
@@ -49,7 +49,7 @@ entry in /etc/fstab
 ```
 put entry in fstab file for mount permanently
 ```bash
-  systemctl restart nfs-server 
+systemctl restart nfs-server 
 ```
 ## Runs Commands on Master-node
 
