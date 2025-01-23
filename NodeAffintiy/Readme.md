@@ -3,9 +3,9 @@
 
 There are two types of node affinity:
 
-1. RequiredDuringSchedulingIgnoredDuringExecution: This is a hard constraint. If the node does not meet the affinity rules, the pod will not be scheduled on that node.
+1. **RequiredDuringSchedulingIgnoredDuringExecution**: This is a hard constraint. If the node does not meet the affinity rules, the pod will not be scheduled on that node.
 
-2. PreferredDuringSchedulingIgnoredDuringExecution: This is a soft constraint. The scheduler will try to place the pod on a node that meets the affinity rules, but if no suitable node is found, the pod will still be scheduled on a different node.
+2. **PreferredDuringSchedulingIgnoredDuringExecution**: This is a soft constraint. The scheduler will try to place the pod on a node that meets the affinity rules, but if no suitable node is found, the pod will still be scheduled on a different node.
 
 Command to set Node Affinity:
 ```bash
