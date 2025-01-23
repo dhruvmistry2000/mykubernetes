@@ -1,0 +1,17 @@
+# This Service configuration exposes the pods managed by the ReplicationController.
+# It allows external access to the application running in the pods.
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+    type: NodePort  # Exposes the service on each Node's IP at a static port (the NodePort).
+  # type: ClusterIP  # Exposes the service on a cluster-internal IP. 
+  # type: LoadBalancer  # Exposes the service externally using a cloud provider's load balancer.
+  selector:
+    app: my-app  # Updated selector to match the labels of the ReplicationController pods.
+    type: frontend
+  ports:
+    - port: 80  # The port that will be exposed by the service.
+      targetPort: 80  # The port on the pod that the service should forward traffic to.
+      nodePort: 30008  # The port on each node that will forward to the service.

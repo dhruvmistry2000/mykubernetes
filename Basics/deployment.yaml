@@ -1,0 +1,21 @@
+# This is a Deployment configuration in Kubernetes, which manages a set of identical pods.
+# It ensures that the specified number of pod replicas are running at all times.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment  # Name of the Deployment
+  labels:
+    app: nginx  # Labels to categorize the Deployment
+spec:
+  replicas: 6  # Desired number of pod replicas
+  selector:
+    matchLabels:
+      app: nginx  # Selector to identify the pods managed by this Deployment
+  template:
+    metadata:
+      labels:
+        app: nginx  # Labels for the pods created by this Deployment
+    spec:
+      containers:
+      - name: nginx  # Name of the container
+        image: nginx  # Docker image to use for the container

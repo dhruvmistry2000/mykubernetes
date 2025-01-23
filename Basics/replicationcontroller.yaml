@@ -1,0 +1,20 @@
+# Define the API version and kind of the resource
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx  # Name of the Replication Controller
+spec:
+  replicas: 3  # Number of desired replicas
+  selector:
+    app: my-app  # Selector to identify the pods managed by this controller
+    type: frontend  # Additional label for pod selection
+  template:
+    metadata:
+      name: nginx  # Name of the pod template
+      labels:
+        app: my-app  # Labels for the pod
+        type: frontend  # Additional label for the pod
+    spec:
+      containers:
+      - name: nginx  # Name of the container
+        image: nginx  # Docker image to use for the container

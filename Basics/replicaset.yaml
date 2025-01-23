@@ -1,0 +1,23 @@
+# This is a ReplicaSet configuration for Kubernetes, which ensures that a specified number of pod replicas are running at any given time.
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx  # Name of the ReplicaSet
+spec:
+  replicas: 6  # Desired number of pod replicas
+  selector:
+    matchExpressions:  # Selector to identify the pods managed by this ReplicaSet
+      - key: name  # The label key to match
+        operator: In  # Operator to match the key against the specified values
+        values:
+          - my-app1  # First value to match
+          - my-app2  # Second value to match
+  template:
+    metadata:
+      labels:
+        name: my-app1  # Label for the pods created by this ReplicaSet
+        type: frontend  # Additional label for the pods
+    spec:
+      containers:
+      - name: nginx  # Name of the container
+        image: nginx  # Docker image to use for the container

@@ -1,0 +1,12 @@
+# This configuration defines a Kubernetes Pod, which is a single instance of a running application process. 
+apiVersion: v1  # API version for the Pod object
+kind: Pod  # Type of Kubernetes object being defined
+metadata:
+  name: pod1  # Unique identifier for the Pod within its namespace
+  labels:
+    name: my-app  # Label for categorizing the Pod
+    type: frontend  # Additional label indicating the application type
+spec:
+  containers:  # List of containers to run in the Pod
+  - name: my-cont  # Identifier for the container within the Pod
+    image: nginx  # Docker image used for the container, serving web content
