@@ -3,6 +3,7 @@ name: Validate Kubernetes Configs
 on:
   pull_request:
     paths:
+      - '!**/main.yml'
       - '**/*.yml'
       - '**/*.yaml'
 
