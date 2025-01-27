@@ -43,3 +43,35 @@ There are several types of Persistent Volumes (PV) that can be used in Kubernete
    - GlusterFS is another distributed file system that aggregates storage from multiple servers into a single global namespace. It is designed for scalability and redundancy.
 
 Each type of PV has its own advantages and use cases, and the choice of PV type depends on the specific requirements of the application and the underlying infrastructure.
+
+## Example
+
+ To create a Persistent Volume (PV) in your Kubernetes cluster, execute the following command:
+```bash
+kubectl apply -f pv.yaml
+```
+
+ To verify that the Persistent Volume has been created successfully, use the following command to list all PVs:
+```bash
+kubectl get pv
+```
+
+ To create a Persistent Volume Claim (PVC) that requests storage resources, run the command below:
+```bash
+kubectl apply -f pvc.yaml
+```
+
+ To check the status of the Persistent Volume Claim and ensure it is bound to a suitable PV, execute:
+```bash
+kubectl get pvc
+```
+
+ To deploy a pod that utilizes the PVC for storage, run the following command:
+```bash
+kubectl apply -f pod.yaml
+```
+
+ To confirm that the Persistent Volume is correctly connected to the pod, use the command below to describe the pod:
+```bash
+kubectl describe pods <pod-name>
+```
