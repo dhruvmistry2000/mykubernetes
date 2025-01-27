@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pv-pod
+spec:
+  volumes:
+    - name: nginx-pv-storage
+      persistentVolumeClaim:
+        claimName: nfs-pvc  # Reference the PVC (make sure nfs-pvc exists)
+  containers:
+    - name: nginx
+      image: nginx  # Using NGINX image to mount the volume
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"  # Mount the NFS volume here
+          name: nginx-pv-storage
