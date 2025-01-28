@@ -1,0 +1,21 @@
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: sam-csr
+spec:
+  signerName: kubernetes.io/kubelet-serving
+  request: <BASE64-ENCODED-CSR>
+  expirationSeconds: 86400  # one day
+  usages:
+  # The following usages are available for CSRs:
+  - client auth  - digital signature
+  - key encipherment
+  - server auth
+  # - digital signature
+  # - key encipherment 
+  # - server auth
+  # - client auth (for client certificate authentication)
+  # - code signing (for signing code/executables)
+  # - email protection (for S/MIME signing/encryption)
+  # - any (allows any usage)
+  # Multiple usages can be specified as needed
