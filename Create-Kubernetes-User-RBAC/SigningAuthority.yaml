@@ -8,7 +8,8 @@ spec:
   expirationSeconds: 86400  # one day
   usages:
   # The following usages are available for CSRs:
-  - client auth  - digital signature
+  - client auth  
+  - digital signature
   - key encipherment
   - server auth
   # - digital signature
